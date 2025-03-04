@@ -1,16 +1,14 @@
 class Solution:
     def checkPowersOfThree(self, n: int) -> bool:
-        powersOfThrees: list[int] = [1]
         power: int = 1
-        
-        while power < n:
+        while power <= n:
             power *= 3
-            powersOfThrees.append(power)
-
-        for num in reversed(powersOfThrees):
-            if n - num == 0:
+        
+        while power > 0:
+            if n == power:
                 return True
-            if n - num > 0:
-                n -= num
-
+            if n > power:
+                n -= power
+            power /= 3
+            
         return False

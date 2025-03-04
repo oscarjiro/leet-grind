@@ -7,13 +7,10 @@ class Solution:
             power *= 3
             powersOfThrees.append(power)
 
-        reversedPowers: list[int] = list(reversed(powersOfThrees))
-        for i in range(len(reversedPowers)):
-            temp: int = n
-            for j in range(i, len(reversedPowers)):
-                if temp - reversedPowers[j] == 0:
-                    return True
-                if temp - reversedPowers[j] > 0:
-                    temp -= reversedPowers[j]
+        for num in reversed(powersOfThrees):
+            if n - num == 0:
+                return True
+            if n - num > 0:
+                n -= num
 
         return False

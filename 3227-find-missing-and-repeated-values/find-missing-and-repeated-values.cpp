@@ -22,9 +22,9 @@ public:
         // Calculate expected sum of numbers and squared numbers in grid
         // sum of n natural numbers = [n(n+1)]/2
         // sum of n squared natural numbers = [n(n+1)(2n+1)]/6
-        long long n = grid.size() * grid.size();
+        int n = grid.size() * grid.size();
         int perfect_sum = n * (n + 1) / 2;
-        long long perfect_sqr_sum = n * (n + 1) * (2 * n + 1) / 6;
+        long long perfect_sqr_sum = (long long)n * (n + 1) * (2 * (long long)n + 1) / 6;
         
         // Breaking down expressions
         // ==================================================

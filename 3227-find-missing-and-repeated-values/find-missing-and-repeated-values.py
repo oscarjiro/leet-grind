@@ -6,13 +6,13 @@ class Solution:
         for row in grid:
             for num in row:
                 actual_sum += num
-                actual_sqr_sum += num ** 2
+                actual_sqr_sum += num * num
 
         # Sum of n natural numbers: [n(n+1)]/2
         # Sum of n squared natural numbers: [n(n+1)(2n+1)]/6
-        n: int = len(grid) ** 2
-        perfect_sum: int = n * (n + 1) // 2
-        perfect_sqr_sum: int = n * (n + 1) * (2 * n + 1) // 6
+        n: int = len(grid) * len(grid)
+        perfect_sum: float = n * (n + 1) / 2
+        perfect_sqr_sum: float = n * (n + 1) * (2 * n + 1) / 6
 
         # BREAKING DOWN EXPRESSIONS
         # a: repeat occurences, b: missing
@@ -29,12 +29,12 @@ class Solution:
         # a = [(sum_sqr_diff / sum_diff) + sum_diff]/2
         # b = [(sum_sqr_diff / sum_diff) - sum_diff]/2
 
-        sum_diff: int = actual_sum - perfect_sum
-        sum_sqr_diff: int = actual_sqr_sum - perfect_sqr_sum
+        sum_diff: float = actual_sum - perfect_sum
+        sum_sqr_diff: float = actual_sqr_sum - perfect_sqr_sum
         
-        repeat: int = (sum_sqr_diff // sum_diff + sum_diff) // 2
-        missing: int = (sum_sqr_diff // sum_diff - sum_diff) // 2
+        repeat: float = (sum_sqr_diff / sum_diff + sum_diff) / 2
+        missing: float = (sum_sqr_diff / sum_diff - sum_diff) / 2
         
-        return [repeat, missing]
+        return [int(repeat), int(missing)]
 
 

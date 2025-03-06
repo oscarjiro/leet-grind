@@ -10,7 +10,7 @@ class Solution
 public:
     vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid) 
     {
-        // fast_io;
+        fast_io;
 
         // Calculate actual sum of numbers and squared numbers in grid
         int actual_sum = 0;

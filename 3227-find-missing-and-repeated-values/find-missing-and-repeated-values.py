@@ -1,8 +1,12 @@
 class Solution:
     def findMissingAndRepeatedValues(self, grid: list[list[int]]) -> list[int]:
         # Actual sum of all numbers and squared numbers in grid
-        actual_sum: int = sum(num for row in grid for num in row)
-        actual_sqr_sum: int = sum(num ** 2 for row in grid for num in row)
+        actual_sum: int = 0
+        actual_sqr_sum: int = 0
+        for row in grid:
+            for num in row:
+                actual_sum += num
+                actual_sqr_sum += num ** 2
 
         # Sum of n natural numbers: [n(n+1)]/2
         # Sum of n squared natural numbers: [n(n+1)(2n+1)]/6

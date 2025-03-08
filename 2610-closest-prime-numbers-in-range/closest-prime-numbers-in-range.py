@@ -11,31 +11,16 @@ class Solution:
         return primes
 
     def closestPrimes(self, left: int, right: int) -> list[int]:
-        primes: list[bool] = self.sieve(right)
+        all_primes: list[bool] = self.sieve(right)
+        primes: list[bool] = [i for i in range(left, right + 1) if all_primes[i]]
 
-        ans: list[int] = [-1, -1]
-        min_delta: int = 0
+        if len(primes) < 2:
+            return [-1, -1]
 
-        i, j = left, left + 1
-        while j <= right:
-            if primes[i] and primes[j]:
-                current_delta: int = j - i
-                if (
-                    ans[0] == -1
-                    or ans[0] != -1
-                    and (current_delta < delta or (current_delta == delta and i < ans[0]))
-                ):
-                    ans[0] = i
-                    ans[1] = j
-                    delta = current_delta
-                i += 1
-                j += 1
-                continue
-            if not primes[j]:
-                j += 1
-            if not primes[i]:
-                i += 1
-                if i == j:
-                    j += 1
+        ans: list[int] = [primes[0], primes[1]]
+        for i in range(1, len(primes) - 1):
+            if primes[i + 1] - primes[i] < ans[1] - ans[0]:
+                ans[0] = primes[i]
+                ans[1] = primes[i + 1]
 
         return ans

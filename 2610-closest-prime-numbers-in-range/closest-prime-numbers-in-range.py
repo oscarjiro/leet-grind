@@ -11,9 +11,6 @@ class Solution:
         return primes
 
     def closestPrimes(self, left: int, right: int) -> list[int]:
-        if left == 2 and right == 3:
-            return [left, right]
-
         all_primes: list[bool] = self.sieve(right)
         primes: list[bool] = [i for i in range(left, right + 1) if all_primes[i]]
 

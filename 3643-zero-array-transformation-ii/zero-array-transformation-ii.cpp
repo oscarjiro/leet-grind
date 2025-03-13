@@ -11,6 +11,7 @@ public:
     int minZeroArray(vector<int> &nums, vector<vector<int>>& queries) 
     {
         fast_io;
+        
         int l = 0, r = queries.size();
         if (!is_zero_array(nums, queries, r))
             return -1;

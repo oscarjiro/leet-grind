@@ -8,8 +8,8 @@ public:
             if (nums[i] == 0)
                 ++n,
                 nums[i] = 1,
-                nums[i + 1] = abs(nums[i + 1] - 1),    
-                nums[i + 2] = abs(nums[i + 2] - 1);
+                nums[i + 1] ^= 1,    
+                nums[i + 2] ^= 1;
         return nums[nums.size() - 1] && nums[nums.size() - 2] ? n : -1; 
     }
 };

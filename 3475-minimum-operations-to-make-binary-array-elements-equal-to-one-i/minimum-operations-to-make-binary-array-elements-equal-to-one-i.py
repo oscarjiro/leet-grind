@@ -8,8 +8,7 @@ class Solution:
                 nums[i + 2] = abs(nums[i + 2] - 1) 
                 n += 1
 
-        for num in nums:
-            if num == 0:
-                return -1
+        if not nums[-1] or not nums[-2]:
+            return -1
 
         return n

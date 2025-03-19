@@ -4,11 +4,7 @@ class Solution:
         for i in range(len(nums) - 2):
             if nums[i] == 0:
                 nums[i] = 1
-                nums[i + 1] = abs(nums[i + 1] - 1) 
-                nums[i + 2] = abs(nums[i + 2] - 1) 
+                nums[i + 1] ^= 1
+                nums[i + 2] ^= 1 
                 n += 1
-
-        if not nums[-1] or not nums[-2]:
-            return -1
-
-        return n
+        return n if nums[-1] and nums[-2] else -1

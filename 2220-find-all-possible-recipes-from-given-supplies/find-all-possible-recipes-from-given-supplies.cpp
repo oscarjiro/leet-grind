@@ -7,7 +7,7 @@ public:
         vector<bool> used(recipes.size(), false);
         vector<string> valid_recipes;
 
-        for (int i = 0; i < 100; ++i)
+        for (int i = 0; i < recipes.size(); ++i)
             for (int j = 0; j < recipes.size(); ++j)
             {
                 if (used[j])

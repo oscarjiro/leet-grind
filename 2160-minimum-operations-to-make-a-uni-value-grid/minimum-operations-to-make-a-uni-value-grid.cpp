@@ -30,9 +30,8 @@ public:
         int median = sorted[n / 2];
 
         int operations = 0;
-        for (const auto &row : grid)
-            for (int num : row)
-                operations += abs(num - median) / x;
+        for (int num : sorted)
+            operations += abs(num - median) / x;
         
         return operations;
     }

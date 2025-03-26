@@ -13,9 +13,6 @@ public:
         fast_io;
 
         int n = grid.size() * grid[0].size();
-        if (n == 1)
-            return 0;
-
         vector<int> sorted;
         sorted.reserve(n);
         for (const auto &row : grid)

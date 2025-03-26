@@ -25,8 +25,8 @@ public:
                 sorted.push_back(num);
             }
 
-        sort(sorted.begin(), sorted.end());
-        int median = sorted[n / 2 - (n % 2 == 0)];
+        nth_element(sorted.begin(), sorted.begin() + n / 2, sorted.end());
+        int median = sorted[n / 2];
 
         int operations = 0;
         for (const auto &row : grid)

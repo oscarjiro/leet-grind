@@ -31,11 +31,7 @@ public:
         int operations = 0;
         for (const auto &row : grid)
             for (int num : row)
-            {
-                if (num == median)
-                    continue;
                 operations += abs(num - median) / x;
-            }
         
         return operations;
     }

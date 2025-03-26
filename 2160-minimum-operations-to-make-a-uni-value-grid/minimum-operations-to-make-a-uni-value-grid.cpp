@@ -17,6 +17,7 @@ public:
             return 0;
 
         vector<int> sorted;
+        sorted.reserve(n);
         for (const auto &row : grid)
             for (int num : row)
             {

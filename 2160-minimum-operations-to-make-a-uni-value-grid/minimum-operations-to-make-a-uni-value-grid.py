@@ -15,10 +15,5 @@ class Solution:
         
         arr = sorted(arr)
         median: int = arr[n // 2 - (n % 2 == 0)]
-
-        operations = 0
-        for row in grid:
-            for num in row:
-                operations += abs(num - median) // x
         
-        return operations
+        return sum(abs(num - median) // x for row in grid for num in row)

@@ -1,8 +1,17 @@
+#pragma GCC optimize("O2")
+
+#define fast_io                   \
+    ios_base::sync_with_stdio(0); \
+    cin.tie(0);                   \
+    cout.tie(0);
+
 class Solution 
 {
 public:
     int minOperations(vector<vector<int>>& grid, int x) 
     {
+        fast_io;
+
         int n = grid.size() * grid[0].size();
         if (n == 1)
             return 0;

@@ -12,33 +12,11 @@ public:
     {   
         fast_io;
 
-        unordered_map<int, vector<int>> indices;
-        for (int i = 0; i < nums.size(); ++i)
-            indices[nums[i]].push_back(i);
-        
-        if (indices.size() == nums.size())
-            return 0;
-        
         int count = 0;
-        for (const auto &p : indices)
-        {
-            vector<int> arr = p.second;
-            if (arr.size() <= 1)
-                continue;
-            for (int i = 0; i < arr.size() - 1; ++i)
-            {
-                if (arr[i] % k == 0)
-                {
-                    count += arr.size() - 1 - i;
-                    continue;
-                }
-                for (int j = i + 1; j < arr.size(); ++j)
-                {
-                    if ((arr[i] * arr[j]) % k == 0)
-                        ++count;
-                }
-            }
-        }
+        for (int i = 0; i < nums.size() - 1; ++i)
+            for (int j = i + 1; j < nums.size(); ++j)
+                if (nums[i] == nums[j] && (i * j) % k == 0)
+                    ++count;
 
         return count;
     }

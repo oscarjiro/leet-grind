@@ -22,18 +22,19 @@ public:
         int count = 0;
         for (const auto &p : indices)
         {
-            if (p.second.size() <= 1)
+            vector<int> arr = p.second;
+            if (arr.size() <= 1)
                 continue;
-            for (int i = 0; i < p.second.size() - 1; ++i)
+            for (int i = 0; i < arr.size() - 1; ++i)
             {
-                if (p.second[i] % k == 0)
+                if (arr[i] % k == 0)
                 {
-                    count += p.second.size() - 1 - i;
+                    count += arr.size() - 1 - i;
                     continue;
                 }
-                for (int j = i + 1; j < p.second.size(); ++j)
+                for (int j = i + 1; j < arr.size(); ++j)
                 {
-                    if ((p.second[i] * p.second[j]) % k == 0)
+                    if ((arr[i] * arr[j]) % k == 0)
                         ++count;
                 }
             }

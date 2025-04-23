@@ -13,12 +13,11 @@ public:
         fast_io;
 
         int largest_size = 1;
-        unordered_map<int, vector<int>> sums;
+        unordered_map<int, int> sums;
         for (int i = 1; i <= n; ++i)
         {
             int sum = sum_digits(i);
-            sums[sum].push_back(i);
-            largest_size = fmax(largest_size, sums[sum].size());
+            largest_size = fmax(largest_size, ++sums[sum]);
         }    
 
         if (largest_size == 1)
@@ -26,7 +25,7 @@ public:
 
         int ans = 0;
         for (const auto &p : sums)
-            if (p.second.size() == largest_size)
+            if (p.second == largest_size)
                 ++ans;
 
         return ans;

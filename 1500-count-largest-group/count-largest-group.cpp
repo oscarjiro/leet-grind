@@ -15,10 +15,7 @@ public:
         int largest_size = 1;
         unordered_map<int, int> sums;
         for (int i = 1; i <= n; ++i)
-        {
-            int sum = sum_digits(i);
-            largest_size = fmax(largest_size, ++sums[sum]);
-        }    
+            largest_size = fmax(largest_size, ++sums[sum_digits(i)]);
 
         if (largest_size == 1)
             return sums.size();

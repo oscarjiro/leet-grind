@@ -15,10 +15,7 @@ public:
         int largest_size = 1;
         vector<int> sums_count(37);
         for (int i = 1; i <= n; ++i)
-        {
-            int sum = sum_digits(i);
-            largest_size = fmax(largest_size, ++sums_count[sum]);
-        }
+            largest_size = fmax(largest_size, ++sums_count[sum_digits(i)]);
 
         int ans = 0;
         for (int count : sums_count)
